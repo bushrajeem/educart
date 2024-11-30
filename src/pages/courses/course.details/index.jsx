@@ -1,8 +1,6 @@
-import { Accordion, AccordionItem } from "@szhsin/react-accordion";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { coursesDetails } from "..";
+// import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import {
+  ArrowBigDown,
   Clock,
   Clock1,
   Clock11,
@@ -11,18 +9,30 @@ import {
   IdCard,
   Info,
   Newspaper,
-  Notebook,
-  ParkingMeter,
   PlayCircleIcon,
-  Scale,
   Search,
   StarHalf,
-  StarHalfIcon,
   StarIcon,
-  Subscript,
   User,
 } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { coursesDetails } from "../../home/components/courses";
 
+import "./course.css";
+import Layout from "../../../layout";
+
+// const AccordionItem = ({ header, ...rest }) => (
+//   <Item
+//     {...rest}
+//     header={
+//       <>
+//         {header}
+//         <ArrowBigDown />
+//       </>
+//     }
+//   />
+// );
 function CourseDetails() {
   const param = useParams();
   console.log(param.id);
@@ -37,7 +47,7 @@ function CourseDetails() {
   });
 
   return (
-    <div>
+    <Layout>
       <div className="bg-gradient-to-r from-secondary/15 to-primary/10 w-full relative h-[210px]">
         <div className=" container px-5">
           <div className="py-[30px] px-[35px]">
@@ -171,9 +181,8 @@ function CourseDetails() {
               dictum.
             </p>
 
-            <Accordion allowMultiple>
-              <AccordionItem header="Revolutionize your learning experience" >
-           
+            {/* <Accordion transition transitionTimeout={250}>
+              <AccordionItem header="What is Lorem Ipsum?" initialEntered>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </AccordionItem>
@@ -181,20 +190,20 @@ function CourseDetails() {
               <AccordionItem header="Where does it come from?">
                 Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla
                 vel erat quis sodales. Nam ex enim, eleifend venenatis lectus
-                vitae, accumsan auctor mi.
+                vitae.
               </AccordionItem>
 
               <AccordionItem header="Why do we use it?">
                 Suspendisse massa risus, pretium id interdum in, dictum sit amet
                 ante. Fusce vulputate purus sed tempus feugiat.
               </AccordionItem>
-            </Accordion>
+            </Accordion> */}
           </div>
 
           <div className="col-span-1">2</div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
