@@ -10,7 +10,7 @@ import Layout from "./layout";
 const router = createBrowserRouter([
   {
     path: "/",
-     element: <Home />,
+    element: <Home />,
   },
   {
     path: "/course-details/:id",
