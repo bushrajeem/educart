@@ -1,16 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import Courses from "./pages/courses";
+import CourseDetails from "./pages/courses/course.details/index.jsx";
 import Home from "./pages/home";
-import CourseDetails from "./pages/home/components/courses/course.details/index.jsx";
-import Layout from "./layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/courses",
+    element: <Courses />,
   },
   {
     path: "/course-details/:id",
@@ -24,8 +27,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
+    <RouterProvider router={router} />
   </StrictMode>
 );

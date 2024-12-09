@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../../shared/components/Button";
 import StoryCard from "./StoryCard";
-import CourseDetails from "../courses/course.details";
+import CourseDetails from "../../../courses/course.details";
 
 export const story = [
   {

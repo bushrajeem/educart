@@ -1,27 +1,46 @@
-import { Accordion, AccordionItem } from "@szhsin/react-accordion";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { coursesDetails } from "..";
+import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
 import {
+  ChevronDown,
   Clock,
   Clock1,
   Clock11,
+  Facebook,
   FileText,
   GraduationCap,
   IdCard,
   Info,
+  Instagram,
   Newspaper,
-  Notebook,
-  ParkingMeter,
   PlayCircleIcon,
-  Scale,
+  PlusIcon,
   Search,
   StarHalf,
-  StarHalfIcon,
   StarIcon,
-  Subscript,
+  Twitter,
   User,
+  Youtube,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Layout from "../../../layout";
+import { coursesDetails } from "../../home/components/courses";
+import AboutUs from "./AboutUs";
+import "./course.css";
+import Instructor from "./Instructor";
+import Members from "./Members";
+import Review from "./Review";
+
+const AccordionItem = ({ header, ...rest }) => (
+  <Item
+    {...rest}
+    header={
+      <div className="accordion-container">
+        <span>{header}</span>
+        <PlusIcon className="icon-class" />
+      </div>
+    }
+  />
+);
 
 function CourseDetails() {
   const param = useParams();
@@ -34,10 +53,10 @@ function CourseDetails() {
       (course) => course.id === parseInt(param.id)
     );
     setDetails(details);
-  });
+  }, []);
 
   return (
-    <div>
+    <Layout>
       <div className="bg-gradient-to-r from-secondary/15 to-primary/10 w-full relative h-[210px]">
         <div className=" container px-5">
           <div className="py-[30px] px-[35px]">
@@ -65,8 +84,8 @@ function CourseDetails() {
         </div>
       </div>
 
-      <div className="container px-5">
-        <div className=" bg-[#669BBC] h-[320px] w-[1150px] py-5 rounded-xl mt-20 ml-8"></div>
+      <div className="container px-10">
+        <div className=" bg-[#669BBC] h-[320px] w-[1200px] py-5 rounded-xl mt-20"></div>
         <div className="flex justify-between  py-5">
           <h1 className="text-[30px] font-bold text-secondary">
             {details.title}
@@ -132,7 +151,7 @@ function CourseDetails() {
           </div>
         </div>
 
-        <div className=" grid grid-cols-3">
+        <div className=" grid grid-cols-3 gap-4">
           <div className="col-span-2">
             <div className="bg-secondary rounded-xl h-[200px] w-fit">
               <div className="grid grid-cols-2">
@@ -171,30 +190,120 @@ function CourseDetails() {
               dictum.
             </p>
 
-            <Accordion allowMultiple>
-              <AccordionItem header="Revolutionize your learning experience" >
-           hello i am jeem 
+            <Accordion transition transitionTimeout={500}>
+              <AccordionItem header="Revolutionize your learning experience">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </AccordionItem>
 
-              <AccordionItem header="Where does it come from?">
+              <AccordionItem header="Empower your ambition with our learning system">
                 Quisque eget luctus mi, vehicula mollis lorem. Proin fringilla
                 vel erat quis sodales. Nam ex enim, eleifend venenatis lectus
-                vitae, accumsan auctor mi.
+                vitae.
               </AccordionItem>
 
-              <AccordionItem header="Why do we use it?">
+              <AccordionItem header="Learning for success, the best route to the top">
+                Suspendisse massa risus, pretium id interdum in, dictum sit amet
+                ante. Fusce vulputate purus sed tempus feugiat.
+              </AccordionItem>
+
+              <AccordionItem header="Compass for your journey of learning">
                 Suspendisse massa risus, pretium id interdum in, dictum sit amet
                 ante. Fusce vulputate purus sed tempus feugiat.
               </AccordionItem>
             </Accordion>
+
+            <p className=" py-5 px-4 flex text-[#403685] font-bold">
+              Show less <ChevronDown />
+            </p>
+
+            <AboutUs />
+            <Instructor />
+            <Members />
+            <Review />
           </div>
 
-          <div className="col-span-1">2</div>
+          <div className="col-span-1 bg-[#eeebeb] py-10 px-7 ml-7 w-[335px] h-fit rounded-xl">
+            <p className="text-primary font-bold text-[20px] ">Course Info</p>
+            <p className="text-[14px] py-3">
+              <p className="py-1">Categories : {details.title}</p>
+              <p className="py-1">Lessons : {details.lesson}</p>
+              <p className="py-1">Quizzes : 05</p>
+              <p className="py-1">Assignments : 06</p>
+              <p className="py-1">Duration : 48Hrs 20Mins</p>
+            </p>
+            <div className="w-full h-[1px] bg-[#CDCDCD]"></div>
+
+            <div className="py-4 font-bold text-secondary">
+              Social Share
+              <div className="py-3 flex gap-5 items-center">
+                <span className=" bg-black rounded-md text-white">
+                  <Facebook />{" "}
+                </span>
+                <span className=" bg-black rounded-md text-white">
+                  <Youtube />{" "}
+                </span>
+                <span className=" bg-black rounded-md text-white">
+                  <Twitter />{" "}
+                </span>
+                <span className=" bg-black rounded-md text-white">
+                  <Instagram />{" "}
+                </span>
+              </div>
+            </div>
+
+            <div className="w-full h-[1px] bg-[#CDCDCD]"></div>
+
+            <>
+              <div className="py-2 mt-2 font-bold text-secondary">
+                {" "}
+                Featured Courses
+              </div>
+              <div className="mt-3 h-[300px] w-[270px] bg-[#5c91b3] rounded-xl"></div>
+              <p className="text-primary text-[22px] mt-3 font-bold">
+                Digital Marketing Job Search in 2023
+              </p>
+              <p className="mt-3 text-[14px]">
+                Wed, 12 Dec 2023 | 7:00pm - 8:00pm
+              </p>
+
+              <button className="bg-secondary h-[52px] w-[160px] rounded-full mt-3 text-white">
+                Register Now
+              </button>
+              <div className=" mt-3 w-full h-[1px] bg-[#CDCDCD]"></div>
+
+              <div className="py-3">
+                <p className="py-3 font-bold text-secondary">Blog Categories</p>
+                <div className="py-3 px-3 flex gap-5 justify-between items-center bg-white rounded-full">
+                  <span> Consultation </span> <span> (3)</span>
+                </div>
+                <div className="py-3 px-3  mt-2 flex gap-5 justify-between items-center bg-white rounded-full">
+                  <span> Entrepreneurs </span> <span> (10)</span>
+                </div>
+                <div className="py-3 px-3 mt-2 flex gap-5 justify-between items-center bg-white rounded-full">
+                  <span> Franchising </span> <span> (5)</span>
+                </div>
+                <div className="py-3 px-3 mt-2 flex gap-5 justify-between items-center bg-white rounded-full">
+                  <span> Leadership </span> <span> (20)</span>
+                </div>
+              </div>
+            </>
+
+            <>
+              <div className="h-[350px] w-[275px] bg-[#5c91b3] mt-5"></div>
+              <div className="bg-secondary w-[275px] h-[244px] p-5 text-white">
+                <p className=" text-[40px] font-medium">Project Proposal</p>
+                <p className="text-[12px]">Factory Floor Digitization</p>
+                <p className="py-4 text-[10px]">
+                Presented By <br />
+                <span className="text-[16px] font-semibold">Jhon Luthor</span>
+                </p>
+              </div>
+            </>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

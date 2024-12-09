@@ -1,5 +1,4 @@
-import React from "react";
-import { ArrowBigLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import AboutCard from "./Aboutcard";
 
 function About() {

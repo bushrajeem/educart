@@ -1,18 +1,12 @@
-import { DocumentIcon, DocumentTextIcon } from "@heroicons/react/16/solid";
 import {
   PlayCircleIcon,
-  RatioIcon,
-  SaveIcon,
-  StarHalfIcon,
-  StarIcon,
-  StarOffIcon,
+  StarIcon
 } from "lucide-react";
-import React from "react";
 import { Link } from "react-router-dom";
 
 
 function Coursescard({ details }) {
-  console.log(details);
+ 
 
   return (
     <div className="py-8 px-5 w-[280px] h-[530px] gap-5 ml-5 rounded-lg shadow-md bg-gradient-to-r hover:from-blue-300 hover:to-orange-100 hover:shadow-xl">

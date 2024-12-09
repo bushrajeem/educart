@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import Button from "../../../../shared/components/Button";
 import SectionTitle from "../../../../shared/components/SectionTitle";
 import Coursescard from "./Coursescard";
-import Button from "../../../../shared/components/Button";
-import axios from "axios";
+// import axios from "axios";
 
 export const coursesDetails = [
   {
