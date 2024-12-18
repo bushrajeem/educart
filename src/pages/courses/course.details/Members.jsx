@@ -36,9 +36,9 @@ function Members() {
         <div className="text-secondary text-[25px] font-bold py-5">Members</div>
 
         <div className="  flex flex-wrap justify-between items-center gap-4">
-          {membercard.map((item) => {
+          {membercard.map((item, i) => {
             return (
-              <div className="flex gap-2 border-[1px] border-primary gap-5 p-5 rounded-lg ">
+              <div className="flex gap-2 border-[1px] border-primary gap-5 p-5 rounded-lg " key={i}>
                 <img src={item.image} alt="" />
                 <div>
                   <p className="text-[16px]">{item.description}</p>

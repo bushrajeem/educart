@@ -59,6 +59,7 @@ function MiddleHeader() {
   const handleClose = () => {
     setPopup(false);
   };
+
   return (
     <>
       <div className="bg-white w-[100%] py-7 shadow-xl">
@@ -82,7 +83,9 @@ function MiddleHeader() {
             </ul>
             <div className="flex gap-5">
               <span className="flex items-center">
-                <i className="fa-solid fa-cart-shopping"></i>
+              <NavLink to="/cart">
+                <i className="fa-solid fa-cart-shopping"></i> 
+              </NavLink>
               </span>
               <span className="font-semibold flex items-center"> | </span>
               <span onClick={handlePopup} className="flex items-center gap-2">

@@ -1,13 +1,7 @@
-import {
-  PlayCircleIcon,
-  StarIcon
-} from "lucide-react";
+import { PlayCircleIcon, StarIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-
 function Coursescard({ details }) {
- 
-
   return (
     <div className="py-8 px-5 w-[280px] h-[530px] gap-5 ml-5 rounded-lg shadow-md bg-gradient-to-r hover:from-blue-300 hover:to-orange-100 hover:shadow-xl">
       <img src={details.image ?? ""} alt="" />
@@ -23,12 +17,11 @@ function Coursescard({ details }) {
         {details.hour ?? ""}
       </div>
 
-     <Link to={`/course-Details/${details.id ?? "nai"}`}>
-      <span className="text-[16px] text-secondary font-bold hover:text-black">
-        {details.title}
-      </span>
-     </Link>
-
+      <Link to={`/course-Details/${details.id ?? "nai"}`}>
+        <span className="text-[16px] text-secondary font-bold hover:text-black">
+          {details.title}
+        </span>
+      </Link>
 
       <div className="flex gap-3 font-thin text-gray-500 text-[14px] py-3">
         <PlayCircleIcon />

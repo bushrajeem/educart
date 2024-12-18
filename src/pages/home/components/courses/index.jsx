@@ -105,10 +105,13 @@ export const coursesDetails = [
   },
 ];
 
+
+
+
 function Courses() {
 //   const apiUrl = "https://jsonplaceholder.typicode.com/posts";
 
-const [courses, setCourses] = React.useState(coursesDetails);
+
 
 //   useEffect(() => {
     
@@ -122,27 +125,31 @@ const [courses, setCourses] = React.useState(coursesDetails);
     
 //   };
 
-  const handleCategory = (e) => {
-     console.log(e.target.value);
-     
-    if(e.target.value){
+ const [courses, setCourses] = React.useState(coursesDetails);
 
-      const selectedCourses = coursesDetails.filter(
-        (item) => item.category === e.target.value
-      );
-      setCourses(selectedCourses);
-    }
-    else{
-      setCourses(coursesDetails);
-    }
+ const handleCategory = (e) => {
+     
+  if(e.target.value){
+
+    const selectedCourses = coursesDetails.filter(
+      (item) => item.category === e.target.value
+    );
+    setCourses(selectedCourses);
   }
+  else{
+    setCourses(coursesDetails);
+  }
+}
+
+
+ const categories = [
+  "web design",
+  "web development",
+  "seo",
+  "graphics",
+]
   
-  const categories = [
-    "web design",
-    "web development",
-    "seo",
-    "graphics",
-  ]
+  
 
   
 
@@ -166,14 +173,14 @@ const [courses, setCourses] = React.useState(coursesDetails);
             <select 
             onChange={handleCategory}
             className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg">
-              {categories.map((category) =>(
+              {categories.map((category,i) =>(
                 <option 
-                value={category}
-                 className="px-4 py-2">{category}</option>
+                value={category} key={i}
+                 className="px-4 py-2 bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500">{category}</option>
               ))}
             </select>
 
-            <select className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg">
+            <select className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg ">
               <option value="1">Rating</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -187,8 +194,8 @@ const [courses, setCourses] = React.useState(coursesDetails);
         </div>
 
         <div className="py-7 flex flex-wrap items-center justify-center gap-16">
-          {courses.map((item) => (
-            <Coursescard details={item} />
+          {courses.map((item,i) => (
+            <Coursescard details={item} key={i} />
           ))}
         </div>
         <span className="flex justify-center">

@@ -21,7 +21,7 @@ import {
   Youtube,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Layout from "../../../layout";
 import { coursesDetails } from "../../home/components/courses";
 import AboutUs from "./AboutUs";
@@ -45,6 +45,7 @@ const AccordionItem = ({ header, ...rest }) => (
 function CourseDetails() {
   const param = useParams();
   console.log(param.id);
+  const navigate = useNavigate();
 
   const [details, setDetails] = useState({});
 
@@ -55,6 +56,31 @@ function CourseDetails() {
     setDetails(details);
   }, []);
 
+  const handleCart = (item) =>{
+    const oldItem = JSON.parse(localStorage.getItem("course"));
+
+    if (oldItem) {
+      localStorage.setItem("course", JSON.stringify([...oldItem, item]));
+      localStorage.setItem("course", JSON.stringify([...oldItem + item]));
+      navigate("/cart");
+    } else{
+      localStorage.setItem("course", JSON.stringify([item]));
+      navigate("/cart");
+    }
+  };
+  // const handletotalPrice = (item) =>{
+  //   const oldPrice = JSON.parse(localStorage.getItem("course"));
+
+  //   if (oldPrice) {
+  //     localStorage.setItem("course", JSON.stringify([...oldItem, item]));
+  //     localStorage.setItem("course", JSON.stringify([...oldItem + item]));
+  //     navigate("/cart");
+  //   } else{
+  //     localStorage.setItem("course", JSON.stringify([item]));
+  //     navigate("/cart");
+  //   }
+  // };
+
   return (
     <Layout>
       <div className="bg-gradient-to-r from-secondary/15 to-primary/10 w-full relative h-[210px]">
@@ -64,7 +90,7 @@ function CourseDetails() {
               Courses Details
             </h1>
             <div className="flex items-center font-medium gap-5">
-              <div>Home</div>
+              <NavLink to="/">Home</NavLink>
               <div className="h-[15px] w-[2px] bg-black"></div>
               <div className=" text-primary">Courses Detail</div>
             </div>
@@ -117,9 +143,13 @@ function CourseDetails() {
             <div className=" border-2 border-gray-500 rounded-3xl h-[40px] w-[80px] text-center py-2">
               {details.price}
             </div>
-            <div className="bg-primary text-white rounded-3xl h-[40px] w-[150px] text-center py-2">
-              Sales Marketing
-            </div>
+
+            <button
+              onClick={() => handleCart(details)} 
+              className="bg-primary text-white rounded-3xl h-[40px] w-[150px] text-center py-2"
+            >
+              Buy Now
+            </button>
           </div>
         </div>
         <div className="w-full h-[1px] bg-primary"></div>
@@ -295,8 +325,8 @@ function CourseDetails() {
                 <p className=" text-[40px] font-medium">Project Proposal</p>
                 <p className="text-[12px]">Factory Floor Digitization</p>
                 <p className="py-4 text-[10px]">
-                Presented By <br />
-                <span className="text-[16px] font-semibold">Jhon Luthor</span>
+                  Presented By <br />
+                  <span className="text-[16px] font-semibold">Jhon Luthor</span>
                 </p>
               </div>
             </>

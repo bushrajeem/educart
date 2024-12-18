@@ -1,5 +1,4 @@
-import { SearchIcon, SearchXIcon } from "lucide-react";
-import React from "react";
+import { SearchIcon } from "lucide-react";
 
 function Banner() {
   return (
