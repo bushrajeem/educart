@@ -46,7 +46,7 @@ function About() {
                 </button>
 
                 <div className="mt-[95px]">
-                  <h2 className="text-secondary text-[35px] font-bold">
+                  <h2 className="text-secondary text-[35px] font-bold w-fit">
                     10K+ Unique{" "}
                     <span className="text-primary">
                       Online Course <br />
@@ -92,12 +92,12 @@ function About() {
               </div>
             </div>
         </div>
-          <div className=" flex items-center justify-between ">
+          <div className=" md:flex flex-wrap items-center justify-between ">
               {cardDetails.map((item, i) => (
                   <>
                   <AboutCard details={item} />
                   {i==3?"":
-               <span className=" w-[2px] h-[100px] bg-slate-500 "></span>
+               <span className="hidden md:block w-[2px] h-[100px] bg-slate-500 "></span>
                   }
                </>
               ))}

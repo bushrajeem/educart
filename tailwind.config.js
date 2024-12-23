@@ -6,6 +6,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "320px",
+       sm: "480px",
+       md: "768px",
+       lg: "1024px",
+       xl: "1280px",
+       "2xl": "1536px",
+      },
       container: {
         center: true,
       },
@@ -14,6 +22,7 @@ module.exports = {
         secondary: "#403685",
         light: "#f1f1f1",
       },
+      
     },
   },
   plugins: [],

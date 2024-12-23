@@ -160,11 +160,11 @@ function Courses() {
           <SectionTitle
             bluetitle="Explore More"
             orangetitle="Online Courses"
-            textSize="40px"
+            textSize="35px"
           />
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <p>Filter By:</p>
-            <select className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg">
+            <select className="text-black bg-[#F1F1F1] w-[140px] px-2 py-[2px] rounded-lg">
               <option value="1">Category</option>
               <option value="2">Price low to high</option>
               <option value="3">Price High to low</option>
@@ -172,7 +172,7 @@ function Courses() {
 
             <select 
             onChange={handleCategory}
-            className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg">
+            className="text-black bg-[#F1F1F1] w-[140px] px-2 py-[2px] rounded-lg">
               {categories.map((category,i) =>(
                 <option 
                 value={category} key={i}
@@ -180,12 +180,12 @@ function Courses() {
               ))}
             </select>
 
-            <select className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg ">
+            <select className="text-black bg-[#F1F1F1] w-[140px] px-2 py-[2px] rounded-lg ">
               <option value="1">Rating</option>
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
-            <select className="text-black bg-[#F1F1F1] w-[148px] px-2 py-[2px] rounded-lg">
+            <select className="text-black bg-[#F1F1F1] w-[140px] px-2 py-[2px] rounded-lg">
               <option value="1">Difficulty</option>
               <option value="2">2</option>
               <option value="3">3</option>

@@ -18,10 +18,14 @@ function Cart() {
       setQuantity(0);
     }
   }, []);
+  
   const cartremove = () => {
-    setCart([]);
-    setQuantity(0);
-    localStorage.removeItem("course");
+    if(id){
+
+      setCart([]);
+      setQuantity(0);
+      localStorage.removeItem("course");
+    }
   };
   useEffect(() => {
    setTotalPrice();

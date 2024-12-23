@@ -1,5 +1,5 @@
-import React from 'react'
-import SectionTitle from '../../../shared/components/SectionTitle'
+
+
 
 function Topcourses() {
   return (

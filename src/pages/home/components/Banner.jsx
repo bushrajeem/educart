@@ -5,14 +5,14 @@ function Banner() {
     <div className=" bg-gradient-to-r from-secondary/15 to-primary/10 h-screen w-full overflow-hidden relative">
       <div className="container px-5">
         <div className=" py-10">
-          <h1 className="text-[65px] font-bold text-secondary py-5">
+          <h1 className="md:text-[65px] font-bold text-secondary py-5">
             Online{" "}
             <span className="text-primary">
               Digital <br /> Marketing
             </span>{" "}
             Courses
           </h1>
-          <p className=" text-[14px] text-gray-600 mt-5">
+          <p className="text-[10px] md:text-[14px] text-gray-600 mt-5">
               Rrow itself, let it be sorrow let him love it let him pursue it,
               ishing for its acquisitiendum. Because he will <br /> ab hold, uniess but
               through concer, and also of those who resist. Now a pure snore

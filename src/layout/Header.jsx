@@ -2,6 +2,7 @@ import  { useState } from "react";
 import Button from "../shared/components/Button";
 import Popup from "../pages/home/components/Popup";
 import { NavLink } from "react-router";
+import { MenuIcon } from "lucide-react";
 
 function Header() {
   return (
@@ -13,7 +14,7 @@ function Header() {
 }
 function TopHeader() {
   return (
-    <div className="bg-secondary w-[100%] py-[10px]">
+    <div className="bg-secondary hidden md:block w-[100%] py-[10px]">
       <div className="container px-5">
         <div className="flex justify-between items-center text-white text-sm">
           <div className="flex gap-4">
@@ -63,12 +64,14 @@ function MiddleHeader() {
   return (
     <>
       <div className="bg-white w-[100%] py-7 shadow-xl">
-        <div className="container px-5">
+        <div className="container md:px-5">
           <div className="flex justify-between items-center">
             <NavLink to="/">
-              <img src="/Edukart.svg" alt="" />
+              <img 
+              className=" w-[100px] md:w-[120px] lg:w-[155px]"
+              src="/Edukart.svg" alt="" />
             </NavLink>
-            <ul className="flex items-center gap-8 font-semibold">
+            <ul className="hidden md:flex items-center gap-8 font-semibold">
               <NavLink to="/" end>
                 Home
               </NavLink>
@@ -81,7 +84,7 @@ function MiddleHeader() {
               <li>Dashboard</li>
               <li>Contact Us</li>
             </ul>
-            <div className="flex gap-5">
+            <div className="hidden md:flex gap-5">
               <span className="flex items-center">
               <NavLink to="/cart">
                 <i className="fa-solid fa-cart-shopping"></i> 
@@ -96,6 +99,9 @@ function MiddleHeader() {
                 <Button text="Register Now" />
               </span>
             </div>
+          <div className="md:hidden ">
+            <MenuIcon />
+          </div>
           </div>
         </div>
         {popup && <Popup handleClose={handleClose} />}
