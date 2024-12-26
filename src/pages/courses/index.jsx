@@ -45,7 +45,6 @@ function CoursesPage() {
         <Courses />
         </div>
       </div>
-      hello
     </Layout>
   );
 }

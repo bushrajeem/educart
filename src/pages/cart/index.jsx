@@ -1,37 +1,61 @@
-import { Trash2 } from "lucide-react";
+import { MinusCircle, PlusCircle, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Layout from "../../layout";
 
 function Cart() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("course") ?? "[]") ?? "[]"
+  );
   const [quantity, setQuantity] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [individualnumber, setIndividualnumber] = useState(1);
 
   useEffect(() => {
-    let details = JSON.parse(localStorage.getItem("course"));
-
-    if (details) {
-      setCart(details);
-      setQuantity(setCart.length);
+    calculateTotalPrice();
+     if (cart.length > 0) {
+      setCart(cart);
+      setQuantity(cart.length);
     } else {
       setCart([]);
       setQuantity(0);
     }
-  }, []);
-  
-  const cartremove = () => {
-    if(id){
+  }, [quantity]);
 
-      setCart([]);
-      setQuantity(0);
-      localStorage.removeItem("course");
+  const cartremove = (item) => {
+    if (item) {
+      let cartItems = localStorage.getItem("course") ?? "[]";
+      cartItems = JSON.parse(cartItems);
+      cartItems = cartItems.filter((i) => i.id !== item.id);
+      localStorage.setItem("course", JSON.stringify(cartItems));
+      localStorage.setItem("quantity", JSON.stringify(quantity));
+      setCart(cartItems);
+      setQuantity(cartItems.length);
+      calculateTotalPrice();
+
+      // localStorage.removeItem("course");
     }
   };
-  useEffect(() => {
-   setTotalPrice();
-  }, []);
+  const calculateTotalPrice = () => {
+    if (cart.length > 0) {
+    let total =  cart.reduce((prev, cur) => {
+      return  prev + cur.price;
+      }, 0);
+      setTotalPrice(total);
+    } else {
+      setTotalPrice(0);
+    }
+    
+  };
 
-
+  const individualChange = (item) => {
+   if(item){
+    let individualItems = localStorage.getItem("course") ?? "[]";
+    individualItems = JSON.parse(individualItems);
+    individualItems = individualItems.map((i) => i.id === item.id);
+    localStorage.setItem("course", JSON.stringify(individualItems));
+    setCart(individualItems);
+   }
+  }
 
   return (
     <div>
@@ -47,7 +71,9 @@ function Cart() {
                   >
                     <h1>{item?.title} </h1>
                     <h1 className="flex items-center gap-3">
-                      {item?.price} <Trash2 onClick={cartremove} />
+                      {item?.price} 
+                      <MinusCircle />{individualnumber} <PlusCircle onClick={() => individualChange(item)}/>
+                      <Trash2 onClick={() => cartremove(item)} />
                     </h1>
                   </div>
                 ))}
@@ -58,14 +84,16 @@ function Cart() {
               <h1 className="font-bold text-[20px] py-3">Order Summary</h1>
               <p className="flex justify-between">
                 Quantity:
-                <div className="font-bold">{cart.length}</div>
+                <div className="font-bold">{quantity}</div>
               </p>
 
               <div className="h-[1px] w-full bg-black mt-5"></div>
 
               <p className="flex justify-between">
                 Total:
-                <span className="font-bold text-primary">$0.00</span>
+                <span className="font-bold text-primary">
+                  {totalPrice}
+                </span>
               </p>
             </div>
           </div>

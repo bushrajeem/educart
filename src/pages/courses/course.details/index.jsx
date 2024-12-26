@@ -57,11 +57,10 @@ function CourseDetails() {
   }, []);
 
   const handleCart = (item) =>{
-    const oldItem = JSON.parse(localStorage.getItem("course"));
+    const oldItem = JSON.parse(localStorage.getItem("course") ?? "[]");
 
     if (oldItem) {
       localStorage.setItem("course", JSON.stringify([...oldItem, item]));
-      localStorage.setItem("course", JSON.stringify([...oldItem + item]));
       navigate("/cart");
     } else{
       localStorage.setItem("course", JSON.stringify([item]));

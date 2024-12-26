@@ -15,7 +15,7 @@ export const coursesDetails = [
     lesson: "20 Lessons",
     image2: "/courseshape2.svg",
     name: "By Angela in Development",
-    price: "$60",
+    price: 10,
     category: "web design",
   },
   {
@@ -27,7 +27,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 20,
     category: "web design",
   },
   {
@@ -39,7 +39,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 30,
     category: "web design",
   },
   {
@@ -51,7 +51,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 40,
     category: "seo",
   },
   {
@@ -64,7 +64,7 @@ export const coursesDetails = [
     lesson: "20 Lessons",
     image2: "/courseshape2.svg",
     name: "By Angela in Development",
-    price: "$60",
+    price: 50,
     category: "graphics",
   },
   {
@@ -76,7 +76,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 60,
     category: "graphics",
   },
   {
@@ -88,7 +88,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 70,
     category: "web development",
   },
   {
@@ -100,7 +100,7 @@ export const coursesDetails = [
     video: "15 Videos",
     lesson: "20 Lessons",
     name: "By Angela in Development",
-    price: "$60",
+    price: 80,
     category: "web development",
   },
 ];

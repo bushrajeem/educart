@@ -1,8 +1,9 @@
-import  { useState } from "react";
+import  { useEffect, useState } from "react";
 import Button from "../shared/components/Button";
 import Popup from "../pages/home/components/Popup";
 import { NavLink } from "react-router";
 import { MenuIcon } from "lucide-react";
+import Cart from "../pages/cart";
 
 function Header() {
   return (
@@ -52,6 +53,19 @@ function TopHeader() {
 }
 
 function MiddleHeader() {
+ 
+  const [quantity, setQuantity] = useState(0);
+   useEffect(() => {
+      let cartquantity = JSON.parse(localStorage.getItem("quantity") ?? 0) ?? 0;
+       if (cartquantity) {
+   
+        setQuantity(cartquantity);
+      } else {
+       
+        setQuantity(0);
+      }
+    }, [quantity]);
+    
   const [popup, setPopup] = useState(false);
 
   const handlePopup = () => {
@@ -87,7 +101,7 @@ function MiddleHeader() {
             <div className="hidden md:flex gap-5">
               <span className="flex items-center">
               <NavLink to="/cart">
-                <i className="fa-solid fa-cart-shopping"></i> 
+                <i className="fa-solid fa-cart-shopping">{quantity}</i> 
               </NavLink>
               </span>
               <span className="font-semibold flex items-center"> | </span>
