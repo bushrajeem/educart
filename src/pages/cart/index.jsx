@@ -1,8 +1,11 @@
 import { MinusCircle, PlusCircle, Trash2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../layout";
+// import store from "../../store/store";
 
 function Cart() {
+  // const {quantity, set} = useContext(store);
+
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("course") ?? "[]") ?? "[]"
   );

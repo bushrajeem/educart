@@ -1,15 +1,17 @@
-import  { useEffect, useState } from "react";
-import Button from "../shared/components/Button";
-import Popup from "../pages/home/components/Popup";
-import { NavLink } from "react-router";
 import { MenuIcon } from "lucide-react";
-import Cart from "../pages/cart";
+import { useState } from "react";
+import { NavLink } from "react-router";
+import Popup from "../pages/home/components/Popup";
+import Button from "../shared/components/Button";
+// import Cart from "../pages/cart";
+// import store from "../store/store";
 
 function Header() {
+  // const {quantity: qt} = useContext(store);
   return (
     <div>
       <TopHeader />
-      <MiddleHeader />
+      <MiddleHeader/>
     </div>
   );
 }
@@ -53,18 +55,18 @@ function TopHeader() {
 }
 
 function MiddleHeader() {
- 
-  const [quantity, setQuantity] = useState(0);
-   useEffect(() => {
-      let cartquantity = JSON.parse(localStorage.getItem("quantity") ?? 0) ?? 0;
-       if (cartquantity) {
+
+  // const [quantity, setQuantity] = useState(0);
+  //  useEffect(() => {
+  //     let cartquantity = JSON.parse(localStorage.getItem("quantity") ?? 0) ?? 0;
+  //      if (cartquantity) {
    
-        setQuantity(cartquantity);
-      } else {
+  //       setQuantity(cartquantity);
+  //     } else {
        
-        setQuantity(0);
-      }
-    }, [quantity]);
+  //       setQuantity(0);
+  //     }
+  //   }, [quantity]);
     
   const [popup, setPopup] = useState(false);
 
@@ -100,8 +102,8 @@ function MiddleHeader() {
             </ul>
             <div className="hidden md:flex gap-5">
               <span className="flex items-center">
-              <NavLink to="/cart">
-                <i className="fa-solid fa-cart-shopping">{quantity}</i> 
+              <NavLink to="/cart">             
+                <i className="fa-solid fa-cart-shopping"></i> 
               </NavLink>
               </span>
               <span className="font-semibold flex items-center"> | </span>

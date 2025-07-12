@@ -6,6 +6,8 @@ import CourseDetails from "./pages/courses/course.details/index.jsx";
 import Home from "./pages/home";
 import Cart from "./pages/cart/index.jsx";
 import CoursesPage from "./pages/courses";
+import { CounterProvider } from "./store/Counter.Store.jsx";
+// import { StoreProvider } from "./store/store.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CounterProvider>
+      <RouterProvider router={router} />
+    </CounterProvider>
   </StrictMode>
 );
